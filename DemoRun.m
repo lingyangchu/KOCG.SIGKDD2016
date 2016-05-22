@@ -10,7 +10,7 @@
 clear;
 
 % load DemoData.mat
-load('DATA\DEMO_DATA\DemoData.mat');
+load('./DATA/DEMO_DATA/DemoData.mat');
 
 % Run enumKOCG.m
 cd KOCG
