@@ -153,7 +153,7 @@ Mi = sum(H*Xjs, 2); % Mi when i = 1
 %% Start iteration
 FX_Val_log  = -1;
 outer_iter = 0;
-outer_iter_thres = 40;
+outer_iter_thres = 50; % this threshold is to avoid dead loop caused by dirty data. This won't happen when data is clean.
 old_i = 1; % old_i can only be placed outside the while loop
 while(outer_iter <= outer_iter_thres)
     outer_iter = outer_iter + 1;
@@ -196,7 +196,7 @@ global conv_thres;
 
 % start iteration
 old_fiVal = 0;
-counter_thres = 100;
+counter_thres = 100; % this threshold is to avoid dead loop caused by dirty data. This won't happen when data is clean.
 counter = 0;
 while(true)
     % do expansion
@@ -342,7 +342,7 @@ end
 
 % first, randomly pick a point as the first seed, use the distribution of node degree
 BNN_vec  = sum(B,2);
-BNN2_vec = BNN_vec.*BNN_vec + 1e-10; % Adding 1e-10 to make sure no connection vertex can also be selected under exterim cases.
+BNN2_vec = BNN_vec.*BNN_vec + 1e-10; % Adding 1e-10 to make sure no connection vertex can also be selected under extreme cases.
 P_vec  = BNN2_vec/sum(BNN2_vec);
 seeds  = rndSample(P_vec);
 
